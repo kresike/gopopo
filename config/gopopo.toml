@@ -1,0 +1,18 @@
+# gopopo configutation file
+ListenAddress = "127.0.0.1"
+Port = 27091
+
+# The size of the sliding window in seconds
+Interval = 3600
+
+# The default amount of messages to allow during interval
+DefaultRate = 500
+
+# Sender domains/email addresses that do not get ratelimited, postfix map style
+DomainWhitelist = "gopopo.wl"
+
+# Sender domains that have a rate limit other than default, postfix map style
+DomainList = "gopopo.domains"
+
+DeferMessage = "rate limit exceeded"
+

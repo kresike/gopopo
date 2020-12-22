@@ -1,0 +1,14 @@
+[Unit]
+Description=Go Postfix Policy server
+
+[Service]
+Type=forking
+RuntimeDirectory=gopopo
+RuntimeDirectoryMode=750
+PIDFile=/run/gopopo/gopopo.pid
+User=postfix
+Group=postfix
+ExecStart=/usr/local/sbin/gopopo
+
+[Install]
+WantedBy=multi-user.target

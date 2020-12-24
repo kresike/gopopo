@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: gopopo
-Upstream-Contact: TODO
+Upstream-Contact: Kiss Károly Pál <kiss.karoly.pal@gmail.com>
 Source: https://github.com/kresike/gopopo
 
 Files: *
@@ -8,9 +8,8 @@ Copyright: 2020 Kiss Károly Pál
 License: GPL-3.0
 
 Files: debian/*
-Copyright: 2020 Kiss Karoly <crash@thor.enyo.hu>
+Copyright: 2020 Kiss Károly Pál <kiss.karoly.pal@gmail.com>
 License: GPL-3.0
 Comment: Debian packaging is licensed under the same terms as upstream
 
 License: GPL-3.0
- TODO

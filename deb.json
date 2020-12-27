@@ -1,0 +1,36 @@
+{
+  "name": "gopopo",
+  "version": "0.0.1",
+  "maintainer": "Kiss Károly Pál <kiss.karoly.pal@gmail.com>",
+  "description": "Lightweight policy server for the postfix mailer written in GO",
+  "changelog-cmd": "cat debian/changelog",
+  "homepage": "https://github.com/kresike/!name!",
+  "arch": "amd64",
+  "section": "mail",
+  "priority": "extra",
+  "files": [
+    {
+      "from": "!name!",
+      "to": "/usr/sbin",
+      "base" : "",
+      "fperm": "0755"
+    },
+    {
+      "from": "config/*",
+      "to": "/etc/gopopo",
+      "base": "config/"
+    }
+  ],
+  "systemd-file": "init/gopopo.service",
+  "recommends": [
+      "postfix (>= 3.1.15)"
+  ],
+  "copyrights": [
+    {
+      "files": "*",
+      "copyright": "2020 Kiss Károly Pál <kiss.karoly.pal@gmail.com>",
+      "license": "GPL",
+      "file": "LICENSE"
+    }
+  ]
+}

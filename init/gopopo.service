@@ -8,7 +8,7 @@ RuntimeDirectoryMode=750
 PIDFile=/run/gopopo/gopopo.pid
 User=postfix
 Group=postfix
-ExecStart=/usr/local/sbin/gopopo
+ExecStart=/usr/sbin/gopopo
 
 [Install]
 WantedBy=multi-user.target

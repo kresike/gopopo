@@ -1,17 +1,17 @@
 #!/usr/bin/make -f
 
-override_dh_auto_build:
+%:
+	dh $@ --builddirectory=_build --buildsystem=golang --with=golang
 
-binary: build
-build:
-	go build
+override_dh_auto_install:
+	install -d debian/gopopo
+	cd _build && mkdir -p ../debian/gopopo/usr/sbin
+	cd _build && cp bin/gopopo ../debian/gopopo/usr/sbin
+	mkdir -p debian/gopopo/etc/gopopo
+	cp config/* debian/gopopo/etc/gopopo/
 
-clean:
-	dh_clean
-	rm -rf _build
-	rm -rf debian/gopopo
+override_dh_strip:
+override_dh_dwz:
 
-install:
-	dh_installsystemd
-	dh_installdirs
-	dh_installdocs
+#override_dh_auto_build:
+#	cd _build && go install -x -trimpath -v -p 8 github.com/kresike/gopopo

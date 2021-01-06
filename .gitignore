@@ -1,3 +1,7 @@
 _build
 gopopo
 .vscode
+debian/debhelper-build-stamp
+debian/files
+debian/gopopo.postrm.debhelper
+debian/gopopo.substvars

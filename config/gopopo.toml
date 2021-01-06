@@ -9,10 +9,10 @@ Interval = 3600
 DefaultRate = 500
 
 # Sender domains/email addresses that do not get ratelimited, postfix map style
-DomainWhitelist = "gopopo.wl"
+DomainWhitelist = "/etc/gopopo/gopopo.wl"
 
 # Sender domains that have a rate limit other than default, postfix map style
-DomainList = "gopopo.domains"
+DomainList = "/etc/gopopo/gopopo.domains"
 
 DeferMessage = "rate limit exceeded"
 

@@ -130,6 +130,7 @@ func processMessage(buf []byte) string {
 		sender = result.Attribute("sender")
 	}
 
+	rsw.Report()
 	return rsw.RateLimit(sender, rcnt)
 }
 

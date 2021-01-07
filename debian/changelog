@@ -1,3 +1,9 @@
+gopopo (0.0.1-3) buster; urgency=medium
+
+  * Added some basic statistic reporting.
+
+ -- Kiss Károly Pál <kiss.karoly.pal@gmail.com>  Fri, 08 Jan 2021 00:29:39 +0100
+
 gopopo (0.0.1-2) buster; urgency=medium
 
   * Fix systemd race condition warning about PID file invalid argument.

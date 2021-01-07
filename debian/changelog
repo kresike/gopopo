@@ -1,3 +1,9 @@
+gopopo (0.0.1-2) buster; urgency=medium
+
+  * Fix systemd race condition warning about PID file invalid argument.
+
+ -- Kiss Károly Pál <kiss.karoly.pal@gmail.com>  Thu, 07 Jan 2021 08:31:10 +0100
+
 gopopo (0.0.1-1) buster; urgency=medium
 
   * Initial release (Closes: None)

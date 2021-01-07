@@ -9,6 +9,7 @@ PIDFile=/run/gopopo/gopopo.pid
 User=postfix
 Group=postfix
 ExecStart=/usr/sbin/gopopo
+ExecStartPost=/bin/sleep 0.1
 
 [Install]
 WantedBy=multi-user.target

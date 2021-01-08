@@ -1,3 +1,10 @@
+gopopo (0.0.2-1) buster; urgency=medium
+
+  * Removed daemon mode from go code.
+  * Updated systemd unit file to simple type.
+
+ -- Kiss Károly Pál <kiss.karoly.pal@gmail.com>  Fri, 08 Jan 2021 22:57:34 +0100
+
 gopopo (0.0.1-4) buster; urgency=medium
 
   * Enabled auto restart feature of systemd for gopopo service.

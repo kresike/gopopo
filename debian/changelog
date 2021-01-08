@@ -1,3 +1,9 @@
+gopopo (0.0.1-4) buster; urgency=medium
+
+  * Enabled auto restart feature of systemd for gopopo service.
+
+ -- Kiss Károly Pál <kiss.karoly.pal@gmail.com>  Fri, 08 Jan 2021 09:15:44 +0100
+
 gopopo (0.0.1-3) buster; urgency=medium
 
   * Added some basic statistic reporting.

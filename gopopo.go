@@ -10,7 +10,6 @@ import (
 	"strings"
 
 	"github.com/kresike/postfix"
-	"github.com/sevlyar/go-daemon"
 	"github.com/spf13/viper"
 )
 
@@ -69,27 +68,8 @@ func main() {
 		os.Exit(1)
 	}
 	defer sock.Close()
-
-	cntxt := &daemon.Context{
-		PidFileName: "/run/gopopo/gopopo.pid",
-		PidFilePerm: 0644,
-		WorkDir:     "./",
-		Umask:       027,
-		Args:        []string{"gopopo"},
-	}
-
-	d, err := cntxt.Reborn()
-	if err != nil {
-		logger.Fatal("Unable to run: ", err)
-	}
-	if d != nil {
-		return
-	}
-	defer cntxt.Release()
-
-	logger.Println("daemon started")
-
 	logger.Println("Listening on " + host + ":" + port)
+
 	for {
 		conn, err := sock.Accept()
 		if err != nil {

@@ -1,5 +1,7 @@
 [Unit]
 Description=Go Postfix Policy server
+StartLimitIntervalSec=500
+StartLimitBurst=5
 
 [Service]
 Type=forking
@@ -10,6 +12,8 @@ User=postfix
 Group=postfix
 ExecStart=/usr/sbin/gopopo
 ExecStartPost=/bin/sleep 0.1
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target

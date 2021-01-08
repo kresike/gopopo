@@ -1,19 +1,22 @@
 [Unit]
 Description=Go Postfix Policy server
-StartLimitIntervalSec=500
+After=network.target
+StartLimitIntervalSec=60
 StartLimitBurst=5
 
 [Service]
-Type=forking
-RuntimeDirectory=gopopo
-RuntimeDirectoryMode=750
-PIDFile=/run/gopopo/gopopo.pid
+Type=simple
 User=postfix
 Group=postfix
+RuntimeDirectory=gopopo
+RuntimeDirectoryMode=750
+WorkingDirectory=/run/gopopo
 ExecStart=/usr/sbin/gopopo
-ExecStartPost=/bin/sleep 0.1
 Restart=on-failure
-RestartSec=5s
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=gopopo
 
 [Install]
 WantedBy=multi-user.target

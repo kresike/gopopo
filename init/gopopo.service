@@ -12,6 +12,7 @@ RuntimeDirectory=gopopo
 RuntimeDirectoryMode=750
 WorkingDirectory=/run/gopopo
 ExecStart=/usr/sbin/gopopo
+ExecReload=kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=5
 StandardOutput=syslog

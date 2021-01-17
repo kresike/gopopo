@@ -1,3 +1,9 @@
+gopopo (0.0.3-1) buster; urgency=medium
+
+  * Implemented data file reloading.
+
+ -- Kiss Károly Pál <kiss.karoly.pal@gmail.com>  Mon, 18 Jan 2021 00:06:51 +0100
+
 gopopo (0.0.2-1) buster; urgency=medium
 
   * Removed daemon mode from go code.

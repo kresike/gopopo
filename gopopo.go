@@ -6,6 +6,8 @@ import (
 	"log/syslog"
 	"net"
 	"os"
+	"os/signal"
+	"syscall"
 	"strconv"
 	"strings"
 
@@ -69,6 +71,21 @@ func main() {
 	}
 	defer sock.Close()
 	logger.Println("Listening on " + host + ":" + port)
+
+	sigs := make(chan os.Signal, 1)
+
+	signal.Notify(sigs, syscall.SIGHUP)
+
+	go func() {
+		for {
+			sig := <-sigs
+			logger.Println("Received signal",sig,"reloading data files")
+			wmap := postfix.Load(wlfn)
+			dmap := postfix.Load(dlfn)
+			rsw.SetWhiteList(wmap)
+			rsw.SetDomainList(dmap)
+		}
+	}()
 
 	for {
 		conn, err := sock.Accept()

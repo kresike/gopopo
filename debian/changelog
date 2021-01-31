@@ -1,3 +1,9 @@
+gopopo (0.0.3-2) buster; urgency=medium
+
+  * Fix an index out of bounds exception error when receiving bad protocol from postfix.
+
+ -- Kiss Károly Pál <kiss.karoly.pal@gmail.com>  Sun, 31 Jan 2021 23:19:23 +0100
+
 gopopo (0.0.3-1) buster; urgency=medium
 
   * Implemented data file reloading.

@@ -114,7 +114,12 @@ func processMessage(buf []byte) string {
 	result := postfix.NewPolicy()
 	for _, param := range parameters {
 		pv := strings.Split(param, "=")
-		result.SetAttribute(pv[0], pv[1])
+		if len(pv) < 2 {
+			logger.Println("ERROR: got a bad parameter from postfix ->", param, "Trying to continue anyway.");
+			result.SetAttribute(param,"");
+		} else {
+			result.SetAttribute(pv[0], pv[1])
+		}
 	}
 
 	rcnt, err := strconv.Atoi(result.Attribute("recipient_count"))

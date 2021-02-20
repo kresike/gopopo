@@ -1,3 +1,9 @@
+gopopo (0.0.4-1) buster; urgency=medium
+
+  * Implemented ratelimit cache persistence on restart.
+
+ -- Kiss Károly Pál <kiss.karoly.pal@gmail.com>  Sat, 20 Feb 2021 23:55:22 +0100
+
 gopopo (0.0.3-2) buster; urgency=medium
 
   * Fix an index out of bounds exception error when receiving bad protocol from postfix.

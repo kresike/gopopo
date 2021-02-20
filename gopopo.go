@@ -55,6 +55,20 @@ func main() {
 	rsw = postfix.NewRatelimitSlidingWindow(wlmap, dommap, tmap)
 	rsw.SetLogger(logger)
 
+	cacheFileName := viper.GetString("CacheFileName")
+
+	if cacheFileName != "" {
+		if _, err := os.Stat(cacheFileName); err == nil {
+			logger.Println("Found previously saved token cache, loading ...")
+			rsw.LoadTokens(cacheFileName)
+			rsw.Report()
+		} else if os.IsNotExist(err) {
+			logger.Println("No cache file found, not loading previous tokens")
+		} else {
+			panic(fmt.Errorf("error checking for cache file: %s", err))
+		}
+	}
+
 	rsw.SetDefaultLimit(viper.GetInt("DefaultRate"))
 
 	rsw.SetInterval(viper.GetString("Interval"))
@@ -74,16 +88,24 @@ func main() {
 
 	sigs := make(chan os.Signal, 1)
 
-	signal.Notify(sigs, syscall.SIGHUP)
+	signal.Notify(sigs, syscall.SIGHUP, syscall.SIGINT, syscall.SIGTERM)
 
 	go func() {
 		for {
 			sig := <-sigs
-			logger.Println("Received signal",sig,"reloading data files")
-			wmap := postfix.Load(wlfn)
-			dmap := postfix.Load(dlfn)
-			rsw.SetWhiteList(wmap)
-			rsw.SetDomainList(dmap)
+			if sig == syscall.SIGINT || sig == syscall.SIGTERM {
+
+				logger.Println("Saving tokens to ",cacheFileName)
+				rsw.SaveTokens(cacheFileName)
+				os.Exit(0)
+
+			} else {
+				logger.Println("Received signal",sig,"reloading data files")
+				wmap := postfix.Load(wlfn)
+				dmap := postfix.Load(dlfn)
+				rsw.SetWhiteList(wmap)
+				rsw.SetDomainList(dmap)
+			}
 		}
 	}()
 

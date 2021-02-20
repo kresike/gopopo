@@ -16,3 +16,4 @@ DomainList = "/etc/gopopo/gopopo.domains"
 
 DeferMessage = "rate limit exceeded"
 
+CacheFileName = "/var/lib/gopopo/ratelimit.cache"

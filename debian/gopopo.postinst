@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#DEBHELPER#
+
+set -e
+
+DIR="/var/lib/gopopo"
+USER="postfix"
+
+mkdir -p ${DIR}
+if id -u ${USER} > /dev/null 2>&1; then
+    chown ${USER}:${USER} ${DIR}
+fi

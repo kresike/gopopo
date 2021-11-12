@@ -191,6 +191,8 @@ github.com/kresike/postfix v0.0.4 h1:dx3qGhNg6xF93L9GT7EtaqO2ZwigcsfUgLWFLpj6jec
 github.com/kresike/postfix v0.0.4/go.mod h1:SqfWeM5Eo7KW/870S+CDj00feGuaomArA/U3dsFvBVg=
 github.com/kresike/postfix v0.0.5 h1:cYa6zN72EjZ9CEi4RSNMX8VXNJSGL39QaASsetMr2J8=
 github.com/kresike/postfix v0.0.5/go.mod h1:SqfWeM5Eo7KW/870S+CDj00feGuaomArA/U3dsFvBVg=
+github.com/kresike/postfix v0.0.6 h1:/MXakmso7F3MsuVM0dnEdR5JvwnMH4eUCfmYX1M7bR4=
+github.com/kresike/postfix v0.0.6/go.mod h1:SqfWeM5Eo7KW/870S+CDj00feGuaomArA/U3dsFvBVg=
 github.com/magiconair/properties v1.8.5 h1:b6kJs+EmPFMYGkow9GiUyCyOvIwYetYJ3fSaWak/Gls=
 github.com/magiconair/properties v1.8.5/go.mod h1:y3VJvCyxH9uVvJTWEGAELF3aiYNyPKd5NZ3oSwXrF60=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=

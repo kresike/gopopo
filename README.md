@@ -5,7 +5,7 @@ sender address where sasl is not available.
 Rate limiting is done using in memory data, persistence is not implemented (yet?).
 
 The algorithm used is a simple sliding window, the granularity is 1 minute and the
-window length can be set using the configuration file, as ell as the default limit
+window length can be set using the configuration file, as well as the default limit
 for one sender.
 
 Exceptions can be set in the whitelist file in the form of a postfix map file, which

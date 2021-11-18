@@ -187,16 +187,6 @@ github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORN
 github.com/kr/pretty v0.2.0/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
-github.com/kresike/postfix v0.0.4 h1:dx3qGhNg6xF93L9GT7EtaqO2ZwigcsfUgLWFLpj6jec=
-github.com/kresike/postfix v0.0.4/go.mod h1:SqfWeM5Eo7KW/870S+CDj00feGuaomArA/U3dsFvBVg=
-github.com/kresike/postfix v0.0.5 h1:cYa6zN72EjZ9CEi4RSNMX8VXNJSGL39QaASsetMr2J8=
-github.com/kresike/postfix v0.0.5/go.mod h1:SqfWeM5Eo7KW/870S+CDj00feGuaomArA/U3dsFvBVg=
-github.com/kresike/postfix v0.0.6 h1:/MXakmso7F3MsuVM0dnEdR5JvwnMH4eUCfmYX1M7bR4=
-github.com/kresike/postfix v0.0.6/go.mod h1:SqfWeM5Eo7KW/870S+CDj00feGuaomArA/U3dsFvBVg=
-github.com/kresike/postfix v0.0.7 h1:cTZD3oVGAAArSwEL7ykJrusCoiCzb6V2zKE9kndvJtc=
-github.com/kresike/postfix v0.0.7/go.mod h1:SqfWeM5Eo7KW/870S+CDj00feGuaomArA/U3dsFvBVg=
-github.com/kresike/postfix v0.0.8 h1:GILRWLNit7JNh4ozhsQHUFT6qtxxJOjY6PTI/7dzwOo=
-github.com/kresike/postfix v0.0.8/go.mod h1:SqfWeM5Eo7KW/870S+CDj00feGuaomArA/U3dsFvBVg=
 github.com/magiconair/properties v1.8.5 h1:b6kJs+EmPFMYGkow9GiUyCyOvIwYetYJ3fSaWak/Gls=
 github.com/magiconair/properties v1.8.5/go.mod h1:y3VJvCyxH9uVvJTWEGAELF3aiYNyPKd5NZ3oSwXrF60=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=

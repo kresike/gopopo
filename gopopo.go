@@ -7,11 +7,12 @@ import (
 	"net"
 	"os"
 	"os/signal"
+	"runtime/debug"
 	"syscall"
 	"strconv"
 	"strings"
+	"gopopo/postfix"
 
-	"github.com/kresike/postfix"
 	"github.com/spf13/viper"
 )
 
@@ -19,6 +20,8 @@ var rsw *(postfix.RatelimitSlidingWindow)
 var logger *(log.Logger)
 
 func main() {
+
+	debug.SetTraceback("crash")
 
 	logger, err := syslog.NewLogger(syslog.LOG_INFO|syslog.LOG_DAEMON, 0)
 	if err != nil {

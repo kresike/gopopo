@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"log"
 )
 
 // Load a map file into a memorymap
-func Load(filename string) *MemoryMap {
+func Load(filename string, l *log.Logger) *MemoryMap {
 	f, err := os.Open(filename)
 	if err != nil {
 		fmt.Println("opening file: ", err.Error())
@@ -20,9 +21,15 @@ func Load(filename string) *MemoryMap {
 	res := NewMemoryMap()
 	for s.Scan() {
 		c++
-		t := strings.Fields(s.Text())
+		str := s.Text()
+		if strings.HasPrefix(str, "#") {
+			l.Printf("ignoring comment at %s:%d (%s)\n", filename, c, str)
+			continue
+		}
+		t := strings.Fields(str)
 		if len(t) != 2 {
-			panic(fmt.Errorf("cannot parse file content of %s at line %d: %s", filename, c, t))
+			l.Printf("cannot parse file content of %s at line %d: %s\n", filename, c, t)
+			continue
 		}
 		res.Add(t[0], t[1])
 	}

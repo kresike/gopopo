@@ -50,8 +50,8 @@ func main() {
 	wlfn := viper.GetString("DomainWhiteList")
 	dlfn := viper.GetString("DomainList")
 
-	wlmap := postfix.Load(wlfn)
-	dommap := postfix.Load(dlfn)
+	wlmap := postfix.Load(wlfn, logger)
+	dommap := postfix.Load(dlfn, logger)
 	tmap := postfix.NewRatelimitTokenMap()
 	tmap.SetLogger(logger)
 
@@ -104,8 +104,8 @@ func main() {
 
 			} else {
 				logger.Println("Received signal",sig,"reloading data files")
-				wmap := postfix.Load(wlfn)
-				dmap := postfix.Load(dlfn)
+				wmap := postfix.Load(wlfn, logger)
+				dmap := postfix.Load(dlfn, logger)
 				rsw.SetWhiteList(wmap)
 				rsw.SetDomainList(dmap)
 			}
@@ -140,7 +140,7 @@ func processMessage(buf []byte) string {
 	for _, param := range parameters {
 		pv := strings.Split(param, "=")
 		if len(pv) < 2 {
-			logger.Println("ERROR: got a bad parameter from postfix ->", param, "Trying to continue anyway.");
+			logger.Println("ERROR: got a bad parameter from postfix in buffer ->", buf, "Trying to continue anyway.");
 			result.SetAttribute(param,"");
 		} else {
 			result.SetAttribute(pv[0], pv[1])

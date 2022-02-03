@@ -118,7 +118,7 @@ func main() {
 			logger.Println("Cannot accept client: " + err.Error())
 			os.Exit(1)
 		}
-		go handleClient(conn)
+		go handleClient(conn, logger)
 	}
 }
 
@@ -134,13 +134,13 @@ func equal(a, b []byte) bool {
 	return true
 }
 
-func processMessage(buf []byte) string {
+func processMessage(buf []byte, logger *log.Logger) string {
 	parameters := strings.Fields(string(buf))
 	result := postfix.NewPolicy()
 	for _, param := range parameters {
 		pv := strings.Split(param, "=")
 		if len(pv) < 2 {
-			logger.Println("ERROR: got a bad parameter from postfix in buffer ->", buf, "Trying to continue anyway.");
+			logger.Println("ERROR: got a bad parameter from postfix in buffer ->", buf, "at parameter:", param, "Trying to continue anyway.");
 			result.SetAttribute(param,"");
 		} else {
 			result.SetAttribute(pv[0], pv[1])
@@ -161,7 +161,7 @@ func processMessage(buf []byte) string {
 	return rsw.RateLimit(sender, rcnt)
 }
 
-func handleClient(conn net.Conn) {
+func handleClient(conn net.Conn, logger *log.Logger) {
 	defer conn.Close()
 
 	buf := make([]byte, 0, 2048)
@@ -179,7 +179,7 @@ func handleClient(conn net.Conn) {
 		}
 	}
 
-	data := processMessage(buf)
+	data := processMessage(buf, logger)
 
 	conn.Write([]byte(data))
 }
